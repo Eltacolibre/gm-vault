@@ -6,6 +6,8 @@ from a phone. No accounts, no cloud — everything lives in a SQLite file on you
 Ships with a sample fantasy **magitek campaign** (*Cinders of the Aether Engine*) so every
 screen has something in it on first launch.
 
+**Site: https://eltacolibre.github.io/gm-vault-site/**
+
 ## Features
 
 - **Campaign dashboard** — record counts, latest session, quick navigation
