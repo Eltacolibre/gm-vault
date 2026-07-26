@@ -1,0 +1,12 @@
+services:
+  gm-vault:
+    build: .
+    container_name: gm-vault
+    ports:
+      - "8580:8580"
+    volumes:
+      - gmvault-data:/data
+    restart: unless-stopped
+
+volumes:
+  gmvault-data:
