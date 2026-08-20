@@ -22,23 +22,9 @@ screen has something in it on first launch.
 - **Made for phones** — dark mode, 48px+ touch targets, bottom tab navigation,
   minimal typing
 
-## One-command setup
+## Setup
 
-Requires [Docker](https://docs.docker.com/get-docker/).
-
-```sh
-docker compose up --build
-```
-
-Then open **http://localhost:8580** — on your phone, use your computer's LAN IP instead
-(e.g. `http://192.168.1.20:8580`).
-
-Campaign data persists in the `gmvault-data` Docker volume across restarts. To start
-over completely: `docker compose down -v`.
-
-## Running without Docker (development)
-
-Requires Node 20+.
+Requires Node 20+. This is the path I run every session.
 
 ```sh
 # terminal 1 — API server on :8580
@@ -48,7 +34,24 @@ cd server && npm install && npm run dev
 cd client && npm install && npm run dev
 ```
 
-The database is created at `server/data/gmvault.db` (override with `DB_PATH`).
+Open **http://localhost:5173**. The database is created at `server/data/gmvault.db`
+(override with `DB_PATH`). To reach it from your phone, start Vite with `--host` and
+use your computer's LAN IP (e.g. `http://192.168.1.20:5173`).
+
+## Docker (unverified)
+
+A `Dockerfile` and a `docker-compose.yml` ship with the repo. They are meant to serve
+the whole app on **http://localhost:8580** in one command:
+
+```sh
+docker compose up --build
+```
+
+**Be careful: I have never run this.** Docker is not installed on my machine, so the
+image build is untested. Treat it as a starting point, not a supported path. Campaign
+data is meant to persist in the `gmvault-data` volume across restarts, and
+`docker compose down -v` is meant to start over. If it breaks for you, please open an
+issue and I will fix it.
 
 ## Tests
 
